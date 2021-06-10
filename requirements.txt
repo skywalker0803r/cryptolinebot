@@ -6,3 +6,4 @@ matplotlib==3.3.2
 vectorbt==0.14.4
 finlab-crypto==0.2.9
 line-bot-sdk==1.19.0
+beautifulsoup4==4.9.3
