@@ -1,0 +1,8 @@
+Flask==1.1.2
+numpy==1.18.5
+gunicorn==19.9.0
+pandas==1.1.5
+matplotlib==3.3.2
+vectorbt==0.14.4
+finlab-crypto==0.2.9
+line-bot-sdk==1.19.0
