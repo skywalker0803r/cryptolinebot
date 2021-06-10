@@ -18,6 +18,7 @@ from finlab_crypto import Strategy
 from finlab_crypto.overfitting import CSCV
 import matplotlib.pyplot as plt
 import copy
+import os
 
 # 回測優化
 def Optimization(pair,freq):
@@ -109,4 +110,4 @@ def handle_message(event):
 
 # 主程序
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=2336, debug=False)
+    app.run(debug=False,port=os.getenv('PORT',2336))
