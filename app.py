@@ -19,10 +19,22 @@ from finlab_crypto.overfitting import CSCV
 import matplotlib.pyplot as plt
 import copy
 import os
+from binance.client import Client
 
 # 回測優化
-def Optimization(pair,freq):
-  ohlcv = finlab_crypto.crawler.get_all_binance(pair,freq)
+def Optimization(
+    pair = None,
+    freq = None,
+    nbars = 100,
+    api_key = '7P3fkeGPMWI1Cxfaje9Kdds1E3B0BHL8gL8Q8QH6pSvo3OuctGZroiyABMyLdTUs',
+    api_secret = 'UHVvoIowzhnTdhtjPX7VWkMdnf6M4SmMfAO4qQ7X9GHhQQ3Vha9FLEUxls02BGAe',
+    ):
+  ohlcv = finlab_crypto.crawler.get_nbars_binance(
+      symbol = pair,
+      interval = freq,
+      nbars = nbars,
+      client = Client(api_key, api_secret)
+      )
   @Strategy(sma1=20, sma2=60)
   def sma_strategy(ohlcv):
     close = ohlcv.close
